@@ -1,0 +1,70 @@
+CRYPTOGRAPHY
+
+-study and application of protections of information by suing codes for secure comm
+
+SYMMETRIC ENCRYPTION
+-use same key for encryptiopn and decryption (100 people means 100 different combination)
+-use sam cipher (algorithm) for encrypt and decrypt
+-key length determines the strength > longer the better
+letters (26) + number (10)= 36 possibilities 
+
+key lenght  		combiantion  		time required
+56		2 to the power of 56		20 hrs
+
+128		2 to the power of 128	 5x10 to the power 17 years
+
+256		2 to the power of 256	 7x10 to the power of 56 years
+
+-popular private-key ciphers: AES, RC5,twofish
+
+plaintext(unencrypted) form sender > key (secret code) + algorithm applied > ciphertext (encrypted is produced) > data can now be transferred through the internet > recieving end > ciphertxt decrypted by the SAME key+algorithm > message is in palintext and understood by the reciever
+
+AES- advanced encryption standard
+	-very popular
+	-use 128,192,256 bit
+
+
+ASYMMETRIC ENCRYPTION
+-public key 
+
+palintext > encypted using PUB KEY of the DESTIANTION + algorithm (**PUB KEY encryption can only be decryped by it's PRIV KEY)  > ciphertxt> send over the internet > DESTINATION uses it's PRIV KEY + algorithm to decrypt> palintxt > message is read
+
+**PUB KEY decrypted by PRIV KEY to protect INTEGRITY
+**if PRIV KEY is used to encrypt the data it is called DIGITAL SIGNING(AUTHENTICITY).Everyone has access to PUB KEY!!
+
+WHY ASSYMETRIC??
+-PRIV KEY exchange is a problem. Assymetric key creates initial trust/secure channel
+-scalability
+-popular solutions: diffie hellman used for key exchagne, RSA & ECC for encryption/decryption
+
+
+SYMMETRIC				ASYMMETRIC
+
+use same key for encrypt/decrpty	different keys
+
+same algorithm				differnet algorithm
+
+fast					slow
+
+safe key exchange is an issue		key exchange can be done in public
+
+short keys				long keys (PUB & PRIV)
+
+***use asymmetric for key exchange then use symmetric
+
+
+HASHING & DIGITAL SIGNATURE 
+
+hashing - data > one-way hashing fx > fiex message digest
+	-fixed size of output forany size of input 
+	-one-way function: impossible to revocer the original
+	-unique :differnt input = different output, if dif input=same output it is called collision
+	-it ensure INTEGRITY
+	-source calculates the file has and includes it with the file > user downloads the file > user recalcualtes the hash independently > user compartes the downloaded and calcualted hash. **if they don't match then the file has been compromised
+
+Digital signature - AUTHENTICITY (assures that data is from the source)
+		- source calculates the file hash > hash is signed by the sources PRIV KEY > user download the file with signed hash > user recalculates the hash of the downloaded file independently > user decrypts the signed hash using the source's PUB KEY & compares hashes 
+		-signed/encrypted using priv key
+		-popular solutions: MD5 creates 128-bit output hashes, suffers from collision; SHA-2 (secure hash algorithm) SHA1 no longer used.
+
+

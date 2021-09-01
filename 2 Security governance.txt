@@ -1,0 +1,97 @@
+SECURITY GOVERNANCE
+
+	policies
+
+		↓
+
+	Standards
+
+		↓
+
+	procedures and guidelines
+
+policies
+
+-org-wide, high level, braod scope
+-long term
+-define responsbilities of both managemnt and users
+-over all direction
+
+standards
+- rules to achieve policy
+
+procedures
+-specifics steps
+-aim to train employees and ensure consistency in security related business process
+
+guidelines
+-optional recommendation
+
+example in passwords
+
+policy - password must be strong, should be regualrly rotated, user are responsible for safe guarding
+
+standards - 8 characters in length min, must be changed every 90 days, have 2 spcial characters, user responsibility and must contact IT security in case of a  compromise
+
+Procedures - step on how to change password. log in > go to options > select chane pass > enter new pass> click submit
+
+guidelines -select a phrase as a password, do not use patterns liek 1234
+
+
+Effective Information Sec Policy
+-identify risk
+-check for legal and regulatory requirements
+-identify how to enforce
+-staff engagement
+-train employees
+- management support (written!!!)
+
+
+COMPLIANCE & INTELLECTUAL PROPERTY
+
+PII - personally identifiable info
+	-info use to identify, locate or contact someon
+	-full name ,DL ,SIN, Address, phone number
+	-org that collects it is responsible for it;s protection
+	-breach should be announced
+
+PHI - protected health info
+	-plans , paymentsm history that can be linked to someone
+	-names. health records,biometrics, health insurance numbers
+	-org that collects it is responsible for it;s protection
+	-breach should be announced
+
+GDPR
+-general data protection regulation
+-european union
+-protect EU citizens worldwide. If a customer is from EU GDPR applies
+-purpose limitaion (data use only for the purpose), breach reporting (72hrs after breach), penalties (fines up to 4M EUROs or 4% annual turnover), integrity (data must be encrypetd), storage limitation (needed data is stored others are deleted), right to be forgotten.
+
+HIPAA
+-health Insurance portability & accountability act
+-protect hx info
+-pshy protection (control monitor access to system), admin protection (mange risk, block unauthz access, train staff), breach notif (immediately announce 500 records min), privacy (respont to pt;s request for info access), penalty ($100-$1.5m), tech protection (encryption)
+
+PCI-DSS
+-payment card industry data security standard protection and regulation
+-vuln management (scan possible vuln and address them), secure network & communication (encryption), network monitoring adn testng (malwre detections), authn and access security (HTTPS!!!)
+
+
+***tips
+-prevention is betten than cure. dont collect PII/PHI if not needed
+-encryption both at rest and in transit
+-security framework for controlling access to data
+
+INTELLECTUALLY PROPERTY
+
+-intagible/uses owners intellect to create an asset
+
+	trademark- logos, phrases or symbol (McDonalds, nestle, Nike)
+
+	copyright- creative or intellectual works music,images,or work of arts.
+		-last for the author's life plus 70 yrs
+		-nice to get registered, but proof of publications is enough for it to be copyrighted
+
+	patent- prevents anyone from making, using or selling inventions
+		-valid for 20yrs in the country it was filed
+

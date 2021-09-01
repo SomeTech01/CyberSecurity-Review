@@ -1,0 +1,63 @@
+HTTP vs HTTPS
+
+1)HTTP - transmits data in palin text (port 80)
+	-susceptible to eavesdropping
+	-HTTPS preferred 
+
+2)HTTPS- transmits encrypted data
+	-lock icon means HHTPS
+
+
+SSL vs TLS
+
+1)ssl- secure socket layer
+	-HTTPS = HTTP= SSL/TLS
+	-depracated
+2)tls- uses 443
+	-client connects to 443 > sever responds with digital certificate
+	-client and server agrees on the encryptiopn scheme
+
+IPSEC VS HTTPS
+1)HHTPS- works in the transport layer
+
+	initially pubclic keys are used to create a session
+
+	private keys are shared within that secure session since symmetric encryption is much faster
+
+
+2)IPSEC -works on the network layer
+	-encrypts the network layer regardless of the upper layer (encrypts again!)
+	-can alsi use public and private key
+	-used in VPN
+	-provides CIA
+
+	VPN - extend private network over a public network
+	
+	2 modes of IPSEC operation
+		transport mode- encapsulate only the data (payload)
+				-used for device to device secure connection
+				-not encryptin IP header allows end-to0end routing 
+				-EAVESDROPPER CAN SEE THE DESTINATION
+		NEWDATA3 + AH/ESP + IP HEADER ( ONLY NEWDATA 3 IS ENCRYPTED)
+
+
+		tunnel mode- encpsulates entire IP packet (including the header)
+				-used for gateway to gateway secure tunnel
+				-routers on the internet cant route your packet cause IP is also encrypted
+				-to solve add a new header unencrypted IP header
+				-once the unecrypted header is recieved the router extracts the encrypted content and sends it to the intent
+				-EAVESDROPPER DOESNT KNOW THE DESTINATION
+		NEWDATA3 + AH/ESP + NEW UNENCRYPTED HEADER ( NEWDATA3 AND PROTOCOL ARE BOTH ENCYPTED)
+
+
+
+
+	2 protocols
+
+		Authn header (AH)- focused on authn
+		Encapsualting Security Payload (ESP) - authn + confidentiality
+
+
+ssh- remote command excution
+	-application layer
+	-port 22 and use encryption to create a secure tunnel

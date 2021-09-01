@@ -1,0 +1,72 @@
+CYBER ATTACK
+
+PASSWORD ATTACK:
+BRUTE FORCE- tries all possible combinations
+		-criteria to defend: password length & type of characters 
+		-password storage: never stored in plain text. Always hashed (one way fx).
+				Hash is the only thing stored.
+		-defense:account lockout, forced captcha (for human to solve not the machine),enforce good password policy(8 characters, Upper/lower/special/numerical cahracter, encrypt the database) 
+		-SALTING- random data added to the hash before storing, may be stored alongside hash
+		-PEPPER-  random data added to the hash before storing, but is kept secret
+		-online vs offline:
+			online -slow and account lockout to counter
+			offline- ideal for attackers 
+			rainbow table - all possible combination. Hashes are pre-computed.	
+					-compares compromised hashes
+
+DICTIONARY ATTACK- uses common passwords therefore you need shorter atime to crack a password
+
+****	
+DoS & DDoS
+
+1)DoS- Denial of Service
+	-slows or makes a service unavailable
+	-example: crash web server, overlaod web/db, choke network through bogus traffic
+	-comes from one source that can be blocked by firewall
+
+2)DDoS- Distribute Denial of Service
+	-DoS but from multiple sources
+
+BOTS & BOTNETS - malicious software is installed on PC's and servers
+		-it becomes an army at the attacker's disposal
+		-Threat: loss of service to clients & employees resulting to finacial loss, reputational damage
+		-defense: 1)load balancing (scalable back end), 2)check attack patterns (set a normal behavior) abnormal behavior may be: sequence of web pages, time spent, reqeust rate, accessing certain ports, geographic location of the request, packet types; 3)IP balck listing, 4) clou-based content distribution (offers protection by load balncing and blocking)
+
+
+****
+DNS attacks
+
+1)DNS poisoning- local DNS  ask for site's IP > DNS reply with the IP and cache >local computers can request the site
+		-attacker sends a spoofed IP of the requested site > the local DNS cache > computer on the network will go to the spoofed IP
+		-prevention: ignore DNS response that were not asked, ognore suspicous DNS server, use DNSSEC (uses PUB KEY to confirm authenticity of message)
+
+2)DNS relfection- attacker sends flood of DNS req using spoofed IP (the victim) > DNS will send a lot of replies to the victim> making DNS unavailable (DoS for DNS server)
+	-defense : block DNS req on servers
+	-application layer attack
+
+***
+Network attacks
+
+1)SMURF ATTACKS- flood ping request sent with victim's spoofed IP > server will reply to all the pings > directed towards the victim causing DoS
+		-DNS attack but on the network layer
+		-difficult to detect because of spoofing
+		-defense: internal networks use anomaly detection
+
+2)TEARDROP ATTACK- fragments packets incorrectly, so when destiantion assembles it, it crashes
+		-old attack win 95 , NT
+
+****
+MiTM - A and C are talking. B comes in and pretends to be A to talk to C. Then talks to C posing as A.
+	-used to copy info: browser session info, passwords, creditcard info
+	-uses IP & DNS spoofing to  execute, SSL hijacking ( when using port 80, you get re-directed to a scire version but gets compromised in this step); and Email hijacking (access email and crafts email posing as someone legit)
+	-defense : using strong encryption, use VPN's, use HTTPS; use AUTHN(PUB KEY)
+
+****
+SOCIAL ENGINEERING
+	-humans are the weakset link in the security chain
+	-social engineering exploits humans to get them to share passwords, insert USB ,or click on links
+	-PHISHING - social engineering attack designed to infiltrate org. Fake emails to ask to click on links. 
+	-defense agaisnt phishing: IT security policy or Report as phisihing on the O365 to be reported to the IT security, phishing practice 
+
+	-PHISHING investigation:1) checking link >RMB on the link > copy link > paste on zulu.zscaler.com or virustotal.com 2)check for malicious attachments > downloaded file (dont open)> drag and drop(dont open) to md5file.com > paste the md5 hash to virustotal 3) chcek reputaion of sending domain > copy the domain > paste on talosintelligence.com > 
+	

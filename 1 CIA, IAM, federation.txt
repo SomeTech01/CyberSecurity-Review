@@ -1,0 +1,138 @@
+Foundation
+
+CIA
+
+1)Confidentiality - ensure data is hidden and only visible to authorized users
+	-enforced throug encryption (gets a private key > algorithm uses the key on the data > data is now obscured to everyone else)
+	-violated by :packect sniffing (PCAP), breaking encryption, human error
+
+2)integrity - accurate, complete, notmodified
+	-enforced by hashes (message digest of data)(if MiTM modifies the data it is going to be verified on the recieving end. The reciever will know it is modified or not)
+	-violated by modification of data in transit (MiTM)
+
+3)availability - availabel when required
+	-enforced by redundancy(Load balancing, more servers)
+	-violated by DoS, hardware damage
+
+
+
+
+
+Identity and access management (IAM)
+
+IAAA
+
+1)identification- I am who I am
+		-provided a username no authn yet
+		-can claim any identity you want
+		-Jim goes to the bank and says he's Jim
+
+2)authn - you prove you are who you say you are
+	-identify THEN authn 
+	-provides non-repudation
+	-password, pin, biometrics
+	-Jim shows his ID as proof of identity
+
+3)authz- becomes a legit user/ clearances 
+	-access control list
+	-identify > authn > authz
+	-Jim wanted to withdraw 10k but is prompted that he is only allowed 5k
+
+4)accountability - account audits /privilege is properly assigned
+		-log reviews
+		-auditor to make sure everything is going well regarding  bank operations
+
+
+Identity Life Cycle
+1)provisioning - create new account and assign privileges
+
+2)review-periodic account review
+	-audit privilege creep (getting promoted thus getting excessive priv. Old priv is not revoked.)
+	-disable inactive account
+
+3)revocation- disabling accounts that are retired or terminated
+		- they may cause harm to the org with thier accounts still available
+
+
+authn factors
+
+type 1 - something you know
+	-password, pins
+	-8 character long , upper and lower case, nemuric character, specila character
+	-passphrase 3 or more words usign the complexity requirements
+
+type 2	-something you have
+	-smart card, ID badge, OTP, google authn
+
+
+type 3 - something you are
+	-biometrics
+	-retina scan differentiate twins, should be close
+	fingerprints min of 4 fingers
+	palm scan
+	voice is not accurate
+	-some of this may change as people age
+
+Mulit factor authn
+
+-often combines type 1 and type 2
+- paying with card. uses type1 (your pin) and type 2 ( your chip card)
+
+
+AUTHN & ACCOUNTABILITY
+
+1)Authn -decides who is allowed to perform what
+	- need to know/least privilege
+
+2)accountability - logging user activity
+		- you are responsible for your actions
+		-enforced by audit (log and account) and job rotation
+		-net logs (router,switch, firewall logs), DB logs (queries, files accessed , modifications logs), app logs (exceptions,crashes,anomalies),  system logs (reources used, app executed)
+
+
+IDENTITY FEDERATION
+
+1)token based authn
+log in req to the server > authn succesful with a token back to the user > uses token for the subsequent request > sever response when verified 
+
+	-avoids using credentials over and over
+	-tokens are short lived for security purposes. tokens chagne mins-hour depending on the server
+
+2)federation
+
+	-1 account log in to multiple paltforms that trust each other
+	-log in request to one server(first) > authn req sent to gmail > gmail sent a log in page to the user > user logs in > SAML token generated to the first server > user is logged in the first server
+
+
+3)single sign-on
+	-log in once use the allowed resources
+
+
+**federation vs sso
+
+-similar concepts
+-sso is a subset of federation
+-federation is more general and between org
+-sso same org just for signing in
+
+protocols for federation
+
+1)SAML -security assertion markup language
+	-standard sso
+	-authn bet two parties
+
+2)OAuth -standard authz bet two parties
+	-authz servers, devices and API to run app on their behalf
+
+3)OIDC - open ID connect
+	-standard SSO
+	-build on top of OAuth
+
+
+***OAuth is a more general suite of protocols related to identity federation and authorizes applications to run services on behalf of other applications. SAML and OIDC are primarily related to providing authentication services for identity federation. XML is a format for file or data exchange.
+
+SSO products
+
+OKTA and AWS cognito
+-both SSO, mfa, org policies
+-different with price OKTA first 7k free users, SSO $2/user/month; AWS 50k free users, sso $275/50k users/ month

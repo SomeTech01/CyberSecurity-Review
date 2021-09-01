@@ -1,0 +1,106 @@
+NAT-network address translation
+	-allows a single public ip address to handle thousands of system
+	-hides the internal IP address
+	-prevent connection initiation from outside
+	-it modifies IP and port
+
+192.168.1.2 (source)> NAT router 96.9.9.3 > router replaces the private ip to a public ip according to the table > 202.12.13.14 (destination) receives the packet 
+
+sends back a reply> goes to the NAT router > router loks atthe table how he translated the first message > sends to the intent
+
+**src and dst are not aware about the NAT router 
+
+PAT- port addres translation
+	-NAT requires one-to-one mapping of priv and pub ip. PAT differentiate multiple connection using the port 
+	
+
+
+FIREWALLS- first line of attacks
+	-can be hardware,software or both
+	-use rules: allow or block
+	-types host-based (end systems), network-based (genral, whole network)
+	-popular: palo alto, juniper, cisco
+	
+	ACCESS CONTROL LIST	
+		-rules can allow/block bsed on:
+			-source ip ( block known malicious IP address)
+			-destination IP (block access to DB)
+			-source port
+			-destiantion port (block vulnerable ports (80,21)
+			-protocol ( block vulnerable protocols icmp)
+
+	CATEGORY
+
+		stateless- configure both inbound and outbound rule
+				-use destination/source of packet and other parameter 
+		
+
+		stateful- sets both rules automatically
+			-inspect everythng insidethe packet. It can learn how data behaves
+
+					https://www.fortinet.com/resources/cyberglossary/stateful-vs-stateless-firewall
+
+	NEXT GEN FIREWALL- application layer
+			-deep packet inspection firewalls
+			-application-level gateway firewall ( inspect also applications not just the network)
+			-when app is known, it uses attack signature to ehnace it's capability
+			-can detect patterns/payloads and block
+
+
+************
+WLANS- extends LAN to remote users
+	-wireless access point bridges the lan and wireless network
+
+	
+	SSID- name of the network
+		-all devices will broadcast the same name
+
+	BSS- basic service set
+		-group of stations to a WAP
+		
+
+	WIRELESS UNAUTHORIZE ACCESS
+		ROUGE AP- malicious user introduces a rouge AP
+			-tricks users to connect to them to steal data
+			
+
+		MAC SPOOFING - attacker masquerade as the legit user by re-using his MAC
+				-
+
+		MiTM- attacker in the middle and make to two parties think he is legit
+
+	
+	WIRELESS BASIC SECURITY
+
+		SSID HIDING- wireless AP broadcast beacon fram every 30 secs (SSID, WAP's MAC, IP address)
+				-hiding the SSID means disabling the beacon frame
+
+		MAC FILTERING -MAC's are burnt into the device	
+				-whitelist known MAC
+				-MAC spoofing is an issue
+
+	WIFI SECURITY
+
+		WEP- wired equivalent privacy
+			-weak security, first encryption
+			-easily broken
+			-short keys (40-140 bits)
+			-RC4 encryption
+
+		WPA-TKIP- WIFI protected access
+			-address the weaknessof WEP
+			-increases key length
+			-TKIP temporal key integrity protocol
+				TKIP genrates a dynamic 128-bit key for every packet
+			-based on wep so some flaws are inheritted
+			-RC4 encryption
+
+		WPA2- version 2
+			-uses AES (idustry-standard)
+			-longer keys
+			-strong security
+			-dynamic session key
+			
+				
+
+			

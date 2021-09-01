@@ -1,0 +1,104 @@
+NETWORKING 
+
+OSI and TCP/IP
+-both are protocol stacks
+-OSI is theoretical
+-TCP/IP is the de-facto standard
+
+TCP/IP
+1)application -user apps, interact with users
+		-web page is made up of an objects (images,texts,vidoes etc)
+		-HTTP is the most popular.Used to fetch html with the objects. Uses TCP protocol 
+		
+2)transport- deliver data from app to app
+		-TCP is most popular because of reliability. There is a dealy but no loss
+		-sender sends packet reciever sends acknowledgement back. If no acknowledgement is recieved it senders re-send the message(SLOW).
+		-UDP used in multimedia. It is unreliable /unordered. Doesn't wait for acknowledgement. Speed is the concern(FAST).
+
+	HEADERS OF TCP VS DUP
+		TCP- has source port, destiantion port
+			-SEQUENCE AND ACKNOWLEDGE NUMBER (sends seq 2 then acknowledgement 2 is expected)
+			-flags, checksum and options
+
+		UDP - everything except SEQUENCE AND ACKNOWLEDGE NUMBER
+			-no acknoweldgement
+
+	SOCKETS and PORTS
+		-1 service/app:1 port (ports are door to access a service. socket =ip+port)
+		-port numbers are stored in 16-bits
+		-2 to the power of 16 = 65535 different ports
+		-port range first 1024 are reserved (well known service). The rest is used by anyone.
+
+	*DNS-domain name system
+		- helps convert(resolution) IP address to names
+		-uses UDP to avoid overhead TCP(TCP creates separate connetion then resolves the name. Millions of users at a time there will be so much overhead)
+		-UDP lose data? it can be re-transmitted. 
+		-DNS req (ip of google?) > DNS reply (ip is 100.12.13.22) > destiantion is 100.12.13.22
+		-DNS SERVER HIERARCHY - root DNS 13 all over the world. Contains Top Level Domain servers that handles top level domain like .com. Authorative server has the ip of specific domain.
+					-spread all over the world for load balancing	
+
+						root DNS servers
+							↓
+						TLD servers
+							↓
+						auth servers
+
+
+
+3)network- route data from computer to computer
+	-desktop (all of the stack. app to app). router (bottom 3 of the stack. Pc to Pc. IP address), switch (bottom 2.one link. MAC address )
+	-IP (internet protcol) -route packets from source to destination. 32 bits/4bytes. Connectionless no retransmission. Packets can take multiple routes
+	- public reachable anywhere in the world. private not publicly routable (class A - C). Loopbach address 127.0.0.1 is own address for test /debugging. IP multicast sends packets to multiple recipients
+	- IP header -ip version IPv4(32bit) or IPv6(128 bit)
+			-identification unique ID 
+			-time to live 
+			-protocol 
+			-source IP
+			-destination IP
+		
+	ICMP -internet protocol message protocol
+		-used fo error reporting (connectivity issues)
+		-used in ping & traceroute
+		-can be used for DoS
+		-traceroute - discovers the route between two systems
+				-leverages TTL. Sends TTL 1 and wwaits for ICMP reply so on to know the distance.
+
+
+
+4)link- transfer data over one link
+	-MAC address - burnt onto the device. 12 digits or 48 bits.
+			-Divided into 2 first 6 digit is the manufacturer last 6 is the device.
+
+
+5)physical-manage mediums (wired/wireless) bits to signals
+
+concept of layerings
+
+	application > hi
+		↓
+	transport > hi + transport header to encpsulate (TCP/UDP) = new data
+		↓
+	network >new data + netwrok header (ip routing) = new data 2
+		↓
+	link > new data 2 + link header (mac address source and destiantion) = new data 3 
+		↓
+	physical > new data 3 is sent as bits through a medium
+
+
+protocol stacks
+
+1)application HTTP SMTP FTP
+
+2)transport TCP UDP STCP
+
+3)network IP ICMP
+
+4)link 802 protocol
+
+5)physical wired/wireless
+
+
+
+
+
+

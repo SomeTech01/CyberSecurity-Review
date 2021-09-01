@@ -1,0 +1,104 @@
+WEB APPLICATION	
+
+ 	client uses HTTP/HTTPS>
+
+		↓
+	 front end (website HTML)>
+
+		↓
+	 backend 
+	(bussiness logic:node JS, PHP, java)(database: mysql, mongo db)
+
+OWASP
+-non-profit web app security community
+-secure software developments advocacy
+-focus primarily on the back end
+
+OWASP top 10
+1)SQL INJECTION- malicoios code inserted to create a fake sql queries to get data from db
+		-' or 1=1-- -' ON INPUT FIELDS
+		-correct sql format: SELECT * FROM Users WHERE Name = 'jack' AND PAssword = '123' 
+		-sql injection :SELECT * FROM Users WHERE Name = ' or 1=1-- -' AND PAssword = ' or 1=1-- -'
+		-as long as query is true, data is extracted
+		-SQL INJECTION ON URL
+		-http://www.song.com/songs.php?song_id=12
+		-http://www.song.com/songs.php?song_id=-1 UNION SELECT * FROM Users WHERE '1'='1'
+		-BLIND SQL IJECTION- attacked cant see output from DB (no return or error)
+					-guess password by using true or false statement on DB
+			2 types:
+				1)BOOLEAN-based -true or false
+				
+				2)TIME-based - if first letter of pass is A wait 5 secs for the results
+					-http://www.song.com/songs.php?song_id=12' AND if('1'='1', SLEEP(10), SLEEP(1)) AND '1'='1
+			
+		-MITIGATING SQL INJECTION 
+			1)input sanitization (remove sepcial characters)
+				-use fx to sanitize for special character to remove or modify them
+				-use pre-built sanitization fx
+			2)prepared sql statements (separate queries from data, parameterize)
+			
+			3)WAF- protects from sql,xss and malware
+				-on prem :cisco cloud-based:cloudflare
+
+
+2)xxs- malicious scripts are inserted into website where they createda new thread or page (steals session info, credentials etc)
+	-web app allows invlaid data input
+
+	2 types
+		1)persistent or stored - stored on web app permanently
+					-script inserted in the message then stored in the DB and loads every visit
+					-other users visit the thread then info are stolen
+
+		2) reflected - scripts included on url which user clicks
+
+				-sent through phishing email (So attacker must actively send the script)
+
+	-PREVENTION
+		1)user input sanitization -prevent specia lcharacter like <>
+		2)user input validation -ensure that any user contetn rendered to other user doesn't contain snippets
+		3)secure code review / libraries - review codes and test attacks
+
+3)broken auth- bypass basic authn mechanism of web apps
+
+4)sesitive data exposure - the website does not protect data
+
+5)xml external entities - exploit weak xml parsers to disclose sensitive data
+
+6)broken acl - web app fails to properly authz user after authn (user can modify)
+
+7)security misconfig - improper config allows access to folders/directories within
+
+8)insecure deserialization - user passes malicious obj which is deserialized by app (after desirialization attacker have access to data)
+
+9)using components with known vulnerabilities - using outdated API and libraries
+
+10)insufficient logging/monitoring - no timely detection (should be done on the back end to detect attacks)
+
+
+VULNERABILITY MANAGEMENT
+
+fundamental requirement of computer security 
+
+	PROCESS ***on-going process***
+
+	asset discovery- know the network before protecting 
+		(type:software, DB, mobile device, servers)
+		(location: offices, infrastrucure, back up sites)
+		(software:OS,BD,web app)
+		(criticality:key assets)
+
+		↓
+
+	vulnerabilty scan - identify services/ports
+		
+
+		↓
+
+	vulnerability assessment- prioritize vulnerabilities according to bussiness needs, severity & likelihood of occurence
+		CVE: description, rating, solutions and tools
+		CVSS- severity rating
+		
+		↓
+	
+	vulnerability mitigation - patching, disabling unused services, find work-arounds
+
